@@ -2,7 +2,7 @@
 from uagents import Agent, Context
 import requests
  
-# Create an agent named Alice
+
 batching_agent = Agent(name="BatchingAgent", seed="Batching_model", port=8000, endpoint=["http://localhost:8000/submit"])
  
 accumulated_data = []
@@ -16,6 +16,7 @@ def get_data():
         if response.status_code == 200:
             return response.json()  
         else:
+            #error data for example
             return {"Heart_rate": 0, "timestamp": "Unknown"}
     except Exception as e:
         return {"Heart_rate": 0, "timestamp": "Error fetching data"}
@@ -34,7 +35,7 @@ def send_accumulated_data(data):
 async def accumulate_heart_rate_data(ctx: Context):
     accumulated_data = ctx.storage.get("accumulated") or []
     
-    data = get_data()  # Example heart rate data
+    data = get_data() 
     
     # Accumulate data every second
     accumulated_data.append(data)
