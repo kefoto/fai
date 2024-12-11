@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "fai"
+version = "0.1.0"
+description = ""
+authors = ["Ke Xu <kxu27@u.rochester.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+uagents = "^0.17.1"
+transformers = "^4.47.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
